@@ -10,10 +10,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 20.16.0  # Your specified Node version
 
       - name: Install dependencies
         run: npm ci
@@ -21,12 +21,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright Tests
+      - name: Run Playwright tests
         run: npx playwright test
 
-      - name: Upload Allure Results
+      - name: Upload Playwright HTML Report
+        if: always()
         uses: actions/upload-artifact@v3
-
         with:
-          name: allure-results
-          path: allure-results
+          name: playwright-report
+          path: playwright-report/
