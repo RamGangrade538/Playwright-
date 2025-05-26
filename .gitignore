@@ -1,5 +1,12 @@
+# Node dependencies
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
+
+# Playwright test artifacts
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache
+
+# Allure reports
+allure-results/
+allure-report/
